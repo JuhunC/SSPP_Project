@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>2 8 4 8</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container clearfix">
+    <div class="chat">
+      <div class="chat-header clearfix">
+        <img src="<%= user.picture %>" alt="avatar">
+        <div class="chat-about">
+          <div class="chat-room">
+            <%= room.title %>
+          </div>
+          <div class="chat-num-users"> User(s)</div>
+        </div>
+        <i class="fa fa-users"></i>
+      </div> <!-- end chat-header -->
+
+      <div class="chat-history">
+        <ul>
+        </ul>
+      </div> <!-- end chat-history -->
+
+      <div class="chat-message clearfix">
+        <textarea name="message" placeholder="Type your message" rows="3"></textarea>
+        <button type="submit">Send</button>
+        <button name="deal-submit">+</button>
+      </div> <!-- end chat-message -->
+    </div> <!-- end chat -->
+
+
+    <div class="controls">
+      <a href="/logout" class="logout-btn" style="margin-bottom: 0;">Logout</a>
+      <a href="/rooms" class="rooms-btn" style="margin-bottom: 0;">Rooms</a>
+    </div>
+    <div class="deal_submit" id="deal_submit">
+      <input type="button" id="deal_hide" onclick="document.getElementById('deal_submit').style.visibility='hidden';"
+        value="X">
+      <p>판매자</p> <input type="text" id="deal_seller" readonly>
+      <p>가격</p> <input type="text" id="deal_price">
+      <form action='/upload' method="post" enctype="multipart/form-data" target="print_popup" onsubmit="window.open('about:blank', 'print_popup', 'width=1,height=1');">
+        <input type="file" name="userfile" id="userfile">
+        <button id="submit_ok"> 거래 등록 </button>
+      </form>
+    </div>
+    <div class="deal_show" id="deal_show">
+      <input type="button" id="deal_hide" onclick="document.getElementById('deal_show').style.visibility='hidden';"
+        value="X">
+      <p>제품명</p> <input type="text" id="deal_product" readonly>
+      <p>판매자</p> <input type="text" id="deal_seller" readonly>
+      <p>가격</p> <input type="text" id="deal_price" readonly>
+      <button id="make_deal" img="img/x.png">Make Deal</button>
+    </div>
+
+    <div class="users-list">
+      <ul class="list">
+      </ul>
+    </div>
+  </div> <!-- end container -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/main.js"></script>
+  <script>$(function () { app.chat('<%= room.id %>', '<%= user.username %>') });</script>
+</body>
+
+</html>

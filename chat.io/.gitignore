@@ -1,0 +1,8 @@
+# Node Dependencies
+node_modules
+
+# Logs
+debug.log
+
+#images upload destination
+public/uploads/*

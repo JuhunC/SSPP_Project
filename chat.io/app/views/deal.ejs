@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>2 8 4 8</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container clearfix">
+    <div class="controls" style="border: none; width: 100%;">
+      <a href="/main" id="main_title">2 8 4 8</a><br><p id="subtitle">이거 팔고 사고 팔고</p>
+      <a href="/logout" class="logout-btn" style="width: auto; padding: 17px; font-size: 12px;margin-bottom: auto;">Logout</a>
+    </div>
+    <div class="deal" style="width: 100%;">
+      <div class="deal-header clearfix">
+        <div class="deal-about">
+          <div class="deal-title" style="font-size: 18px">거래 목록</div>
+          <div class="deal-num-deals"><%= deals.length %> Deal(s) </div>
+          </div>
+        </div>
+        <!-- end deal-header -->
+      <div class="deal-list">
+        <ul>
+        </ul>
+      </div> <!-- end deal-list -->
+    </div> <!-- end deal -->
+
+  </div> <!-- end container -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/main.js"></script>
+  <script>$(function () { app.deal('<%-JSON.stringify(deals)%>') });</script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>2 8 4 8</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container clearfix" >
+    <div class="controls" style="border: none; width: 100%;">
+      <a href="/main" id="main_title">2 8 4 8</a><br><p id="subtitle">이거 팔고 사고 팔고</p>
+      <a href="/logout" class="logout-btn" style="width: auto; padding: 17px; font-size: 12px;margin-bottom: auto;">Logout</a>
+    </div>
+    <div class="room" style="width: 100%;">
+      <div class="room-header clearfix">
+        <div class="room-about">
+          <div class="room-title" id="main-title">Main Menu</div>
+        </div>
+      </div> <!-- end room-header -->
+
+      <div class="room-list">
+        <ul>
+          <a href="rooms">
+            <li class="room-item" id="main-menu">
+              채팅방 목록
+            </li>
+          </a>
+          <a onclick="document.getElementById('register_form').style.display='block'">
+            <li class="room-item" id="main-menu">
+              상품 등록
+            </li>
+          </a>
+          <a href="/deal">
+            <li class="room-item" id="main-menu">
+              거래 관리
+            </li>
+          </a>
+          <a href="http://m.police.go.kr/m/main.html" target="_blank">
+            <li class="room-item" id="main-menu">
+              사기 신고
+            </li>
+          </a>
+        </ul>
+      </div> <!-- end room-list -->
+      <div class="pro_reg" id=register_form>
+          <div class="room-create clearfix" style="border-bottom: 2px solid white;" style="font-family: 'Jua', sans-serif;">
+        <button id="pro_close" onclick="document.getElementById('register_form').style.display='none'">접기</button>
+          <p id="pro_name_1">상품 이름 :</p>
+          <input type="text" name="title" autofocus placeholder="Type a new room">
+          <button style="font-family: 'Jua', sans-serif;">Create</button>
+        </form>
+      </div>
+    </div> <!-- end room -->
+
+  </div> <!-- end container -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/main.js"></script>
+  <script>$(function () { app.rooms() });</script>
+
+</body>
+
+</html>
